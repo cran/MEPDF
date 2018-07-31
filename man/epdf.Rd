@@ -12,7 +12,7 @@ Assembles main grid and superimposes grids of different resolution.
 \item{max.corner}{Upper cropping point of the data.}
 \item{min.corner}{Lower cropping point of the data.}
 \item{main.gridsize}{Vector of grid sizes for the main grid.}
-\item{rescubes}{List of upper and lower cropping points, as well as grid sizes for cubes that are to be superimposed.}
+\item{rescubes}{List of upper and lower cropping points, as well as grid sizes for cubes that are to be superimposed}
 }
 \examples{
 library("pracma")
