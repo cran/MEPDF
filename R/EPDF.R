@@ -6,7 +6,11 @@ cube<-function(data,mx,mn,grid.sizes){
 
   dim<-ncol(data)
   n<-nrow(data)
-  if(missing(grid.sizes)){grid.sizes<-rep(0.05,dim)}
+
+  # Scott Rule
+  if(missing(grid.sizes)){
+    grid.sizes<-2*3^(1/(2+dim))*pi^(dim/(4+2*dim))*diag(var(data))*n^(-1/(2+dim))
+  }
 
   allupr<-function(x){all(x < mx)}
   alllwr<-function(x){all(x > mn)}
@@ -110,6 +114,11 @@ pseudokernel<-function(data,mn,mx,grid.sizes,rings){
   # Basic data values, dimension etc.
   dim <- ncol(data)
   n <- nrow(data)
+
+  # Scott Rule
+  if(missing(grid.sizes)){
+    grid.sizes<-2*3^(1/(2+dim))*pi^(dim/(4+2*dim))*diag(var(data))*n^(-1/(2+dim))
+  }
 
   # Add corners if necessary
   if (missing(mx)) {
